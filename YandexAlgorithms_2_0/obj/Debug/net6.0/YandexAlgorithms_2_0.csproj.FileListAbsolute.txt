@@ -17,7 +17,6 @@ C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\
 C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\bin\Debug\net6.0\YandexAlgorithms_2_0.runtimeconfig.json
 C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\bin\Debug\net6.0\YandexAlgorithms_2_0.dll
 C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\bin\Debug\net6.0\YandexAlgorithms_2_0.pdb
-C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\obj\Debug\net6.0\YandexAlgorithms_2_0.csproj.AssemblyReference.cache
 C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\obj\Debug\net6.0\YandexAlgorithms_2_0.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\obj\Debug\net6.0\YandexAlgorithms_2_0.AssemblyInfoInputs.cache
 C:\Users\koren\Desktop\projectsDotNET\YandexAlgorithms_2_0\YandexAlgorithms_2_0\obj\Debug\net6.0\YandexAlgorithms_2_0.AssemblyInfo.cs
