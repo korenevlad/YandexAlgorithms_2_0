@@ -132,50 +132,72 @@ namespace YandexAlgorithms_2_0
 
         //Задача D
         //
-        public static void D_Solution(string firstStr, string secondStr)
+        //public static void D_Solution(string firstStr, string secondStr)
+        //{
+        //    int resultRight = 0;
+        //    int resultLeft = 0;
+
+        //    string[] firstStrMas = firstStr.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        //    string[] secondStrMas = secondStr.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        //    int[] firstIntMas = new int[2];
+        //    int.TryParse(firstStrMas[0], out firstIntMas[0]);
+        //    int.TryParse(firstStrMas[1], out firstIntMas[1]);
+
+        //    int[] secondIntMas = new int[firstIntMas[1]];
+        //    for (int i = 0; i<secondIntMas.Length; i++)
+        //    {
+        //        int.TryParse(secondStrMas[i], out secondIntMas[i]);
+        //    }
+        //    int mediumRightPos = firstIntMas[0] / 2;
+
+        //    bool flag_Right = false;
+        //    bool flag_Left = false;
+
+        //    for (int i = 0; i < secondIntMas.Length; i++)
+        //    {
+        //        if (secondIntMas[i] >= mediumRightPos && flag_Right == false)
+        //        {
+        //            resultRight = secondIntMas[i];
+        //            flag_Right = true;
+        //            break;
+        //        }
+        //    }
+        //    for (int i = secondIntMas.Length - 1; i >= 0; i--)
+        //    {
+        //        if (secondIntMas[i] < mediumRightPos && flag_Left == false)
+        //        {
+        //            resultLeft = secondIntMas[i];
+        //            flag_Left = true;
+        //            break;
+        //        }
+        //    }
+
+        //    string result = (resultRight == mediumRightPos && firstIntMas[0] % 2 == 1) ? resultRight.ToString() : 
+        //        resultLeft.ToString() + " " + resultRight.ToString();
+        //    Console.WriteLine(result);
+        //}
+
+        public static void E_Solution(string strCountFolders, string strDiplomas)
         {
-            int resultRight = 0;
-            int resultLeft = 0;
-
-            string[] firstStrMas = firstStr.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            string[] secondStrMas = secondStr.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
-            int[] firstIntMas = new int[2];
-            int.TryParse(firstStrMas[0], out firstIntMas[0]);
-            int.TryParse(firstStrMas[1], out firstIntMas[1]);
-
-            int[] secondIntMas = new int[firstIntMas[1]];
-            for (int i = 0; i<secondIntMas.Length; i++)
+            string[] strDiplomasMas = strDiplomas.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            List<int> intDiplomasMas = new List<int>();
+            for (int i = 0; i < strDiplomasMas.Length; i++)
             {
-                int.TryParse(secondStrMas[i], out secondIntMas[i]);
+                int.TryParse(strDiplomasMas[i], out int tempDip);
+                intDiplomasMas.Add(tempDip);
             }
-            int mediumRightPos = firstIntMas[0] / 2;
-
-            bool flag_Right = false;
-            bool flag_Left = false;
-
-            for (int i = 0; i < secondIntMas.Length; i++)
+            int maxLast = intDiplomasMas.Max();
+            if(intDiplomasMas.Count == 1)
             {
-                if (secondIntMas[i] >= mediumRightPos && flag_Right == false)
-                {
-                    resultRight = secondIntMas[i];
-                    flag_Right = true;
-                    break;
-                }
+                Console.WriteLine(0);
             }
-            for (int i = secondIntMas.Length - 1; i >= 0; i--)
+            else
             {
-                if (secondIntMas[i] < mediumRightPos && flag_Left == false)
-                {
-                    resultLeft = secondIntMas[i];
-                    flag_Left = true;
-                    break;
-                }
-            }
+                intDiplomasMas.Remove(maxLast);
+                Console.WriteLine(intDiplomasMas.Sum());
 
-            string result = (resultRight == mediumRightPos && firstIntMas[0] % 2 == 1) ? resultRight.ToString() : 
-                resultLeft.ToString() + " " + resultRight.ToString();
-            Console.WriteLine(result);
+            }
         }
 
 
@@ -195,7 +217,11 @@ namespace YandexAlgorithms_2_0
 
             //Задача D
             //
-            D_Solution(Console.ReadLine(), Console.ReadLine());
+            //D_Solution(Console.ReadLine(), Console.ReadLine());
+
+            //Задача E
+            //
+            E_Solution(Console.ReadLine(), Console.ReadLine());
 
         }
     }
