@@ -10,9 +10,9 @@ namespace YandexAlgorithms_2_0
     public class Homework2
     {
 
-        //Первая таска
+        //Задача A
         ///
-        //public static void MySolutionFirst()
+        //public static void A_Solution()
         //{
         //    string str = "";
         //    string tempStr = "";
@@ -56,9 +56,9 @@ namespace YandexAlgorithms_2_0
 
 
 
-        //Вторая таска
+        //Задача B
         //
-        //public static void MySolutionSecond(string str)
+        //public static void B_Solution(string str)
         //{
         //    string[] strMas = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         //    int[] intMas = new int[strMas.Length];
@@ -113,34 +113,90 @@ namespace YandexAlgorithms_2_0
         //    Console.WriteLine(distances.Max());
         //}
 
-        public static void MySolutionFird(string str)
+        //Задача C
+        //public static void C_Solution(string str)
+        //{
+        //    char[] charMas = str.ToCharArray();
+        //    int count = 0;
+        //    for (int i = 0; i < (charMas.Length / 2); i++)
+        //    {
+        //        if (charMas[i] != charMas[charMas.Length - 1 - i])
+        //        {
+        //            count++;
+        //        }
+        //    }
+        //    Console.WriteLine(count);
+        //}
+
+
+
+        //Задача D
+        //
+        public static void D_Solution(string firstStr, string secondStr)
         {
-            char[] charMas = str.ToCharArray();
-            int count = 0;
-            for (int i = 0; i < (charMas.Length / 2); i++)
+            int resultRight = 0;
+            int resultLeft = 0;
+
+            string[] firstStrMas = firstStr.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] secondStrMas = secondStr.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            int[] firstIntMas = new int[2];
+            int.TryParse(firstStrMas[0], out firstIntMas[0]);
+            int.TryParse(firstStrMas[1], out firstIntMas[1]);
+
+            int[] secondIntMas = new int[firstIntMas[1]];
+            for (int i = 0; i<secondIntMas.Length; i++)
             {
-                if (charMas[i] != charMas[charMas.Length - 1 - i])
+                int.TryParse(secondStrMas[i], out secondIntMas[i]);
+            }
+            int mediumRightPos = firstIntMas[0] / 2;
+
+            bool flag_Right = false;
+            bool flag_Left = false;
+
+            for (int i = 0; i < secondIntMas.Length; i++)
+            {
+                if (secondIntMas[i] >= mediumRightPos && flag_Right == false)
                 {
-                    count++;
+                    resultRight = secondIntMas[i];
+                    flag_Right = true;
+                    break;
                 }
             }
-            Console.WriteLine(count);
+            for (int i = secondIntMas.Length - 1; i >= 0; i--)
+            {
+                if (secondIntMas[i] < mediumRightPos && flag_Left == false)
+                {
+                    resultLeft = secondIntMas[i];
+                    flag_Left = true;
+                    break;
+                }
+            }
 
+            string result = (resultRight == mediumRightPos && firstIntMas[0] % 2 == 1) ? resultRight.ToString() : 
+                resultLeft.ToString() + " " + resultRight.ToString();
+            Console.WriteLine(result);
         }
+
 
         public static void Main(string[] args)
         {
-            //Первая таска
+            //Задача A
             //
-            //MySolutionFirst();
+            //A_Solution();
 
-            //Вторая таска
+            //Задача B
             //
-            //MySolutionSecond(Console.ReadLine());
+            //B_Solution(Console.ReadLine());
 
-            //Третья таска
+            //Задача C
             //
-            MySolutionFird(Console.ReadLine());
+            //C_Solution(Console.ReadLine());
+
+            //Задача D
+            //
+            D_Solution(Console.ReadLine(), Console.ReadLine());
+
         }
     }
 }

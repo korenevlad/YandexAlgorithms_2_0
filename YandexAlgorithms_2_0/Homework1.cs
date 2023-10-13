@@ -8,9 +8,9 @@
 //{
 //    public class Homework1
 //    {
-//        /*Первая таска
+//        /*Задача A
 //         */
-//        //public static int MySolutionFirst(int r, int i, int c)
+//        //public static int A_Solution(int r, int i, int c)
 //        //{
 //        //    int responce;
 
@@ -32,9 +32,9 @@
 
 
 
-//        /*Вторая таска
+//        /*Задача B
 //         */
-//        //public static void MySolutionSecond(string str)
+//        //public static void B_Solution(string str)
 //        //{
 //        //    string[] date = str.Split(' ');
 //        //    int.TryParse(date[0], out int N);
@@ -53,8 +53,8 @@
 
 
 
-//        /*Третья таска*/
-//        //public static void MySolutionThird(string str)
+//        /*Задача C*/
+//        //public static void C_Solution(string str)
 //        //{
 //        //    string[] inputNumbers = str.Split();
 //        //    if (inputNumbers.Length == 3)
@@ -89,8 +89,8 @@
 
 
 
-//        /*Четвёртая таска*/
-//        //public static void MySolutionFourth(string Nstr, string str)
+//        /*Задача D*/
+//        //public static void D_Solution(string Nstr, string str)
 //        //{
 
 //        //    int.TryParse(Nstr, out int N);
@@ -107,8 +107,8 @@
 
 
 
-//        /*Пятая таска*/
-//        public static void MySolutionFith(string dStr, string XStr)
+//        /*Задача E*/
+//        public static void E_Solution(string dStr, string XStr)
 //        {
 //            int.TryParse(dStr, out int d);
 //            string[] XmasStr = XStr.Split(' ');
@@ -175,7 +175,7 @@
 //        public static void Main(string[] args)
 //        {
 
-//            ///* Первая таска*/
+//            ///*  Задача A */
 //            ///
 //            //string r = Console.ReadLine();
 //            //string i = Console.ReadLine();
@@ -183,27 +183,27 @@
 //            //int.TryParse(r, out int number_r);
 //            //int.TryParse(i, out int number_i);
 //            //int.TryParse(c, out int number_c);
-//            ////Console.WriteLine(MySoolutionFirst(number_r, number_i, number_c));
+//            ////Console.WriteLine(A_Solution(number_r, number_i, number_c));
 
 
 
-//            //Вторая таска
+//            //Задача B
 //            ///
-//            //MySolutionSecond(Console.ReadLine());
+//            //B_Solution(Console.ReadLine());
 
 
-//            //Третья таска
+//            //Задача C
 //            ///
-//            //MySolutionThird(Console.ReadLine());
+//            //C_Solution(Console.ReadLine());
 
-//            //Четвёртая таска
+//            //Задача D
 //            ///
-//            //MySolutionFourth(Console.ReadLine(), Console.ReadLine());
+//            //D_Solution(Console.ReadLine(), Console.ReadLine());
 
 
-//            //Пятая таска
+//            //Задача E
 //            ///
-//            MySolutionFith(Console.ReadLine(), Console.ReadLine());
+//            E_Solution(Console.ReadLine(), Console.ReadLine());
 
 
 //            //TwoSum
