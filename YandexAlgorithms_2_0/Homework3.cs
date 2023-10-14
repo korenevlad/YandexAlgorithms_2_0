@@ -30,23 +30,47 @@ namespace YandexAlgorithms_2_0
         //    Console.WriteLine(count);
         //}
 
-        public static void B_Solution(string str)
+        //public static void B_Solution(string str)
+        //{
+        //    string[] strMas = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        //    HashSet<string> strHash = new HashSet<string>();
+        //    for (int i =0; i < strMas.Length; i++)
+        //    {
+        //        if (strHash.Contains(strMas[i]))
+        //        {
+        //            Console.WriteLine("YES");
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("NO");
+        //            strHash.Add(strMas[i]);
+        //        }
+        //    }
+        //}
+
+        public static void C_Solution(string str)
         {
             string[] strMas = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            List<string> strList = new List<string>();
             HashSet<string> strHash = new HashSet<string>();
-            for (int i =0; i < strMas.Length; i++)
+            for (int i =0; i< strMas.Length; i++)
             {
-                if (strHash.Contains(strMas[i]))
+                if (!strHash.Contains(strMas[i]))
                 {
-                    Console.WriteLine("YES");
+                    strHash.Add(strMas[i]);
+                    strList.Add(strMas[i]);
                 }
                 else
                 {
-                    Console.WriteLine("NO");
-                    strHash.Add(strMas[i]);
+                    strList.Remove(strMas[i]);
                 }
             }
+            foreach (string i in strList)
+            {
+                Console.WriteLine(i);
+            }
         }
+
 
         public static void Main(string[] args)
         {
@@ -56,7 +80,9 @@ namespace YandexAlgorithms_2_0
 
             //Задача B
             //
-            B_Solution(Console.ReadLine());
+            //B_Solution(Console.ReadLine());
+
+            C_Solution(Console.ReadLine());
         }
     }
 }
