@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,27 +49,84 @@ namespace YandexAlgorithms_2_0
         //    }
         //}
 
-        public static void C_Solution(string str)
+        //public static void C_Solution(string str)
+        //{
+        //    string[] strMas = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        //    List<string> strList = new List<string>();
+        //    HashSet<string> strHash = new HashSet<string>();
+        //    for (int i =0; i< strMas.Length; i++)
+        //    {
+        //        if (!strHash.Contains(strMas[i]))
+        //        {
+        //            strHash.Add(strMas[i]);
+        //            strList.Add(strMas[i]);
+        //        }
+        //        else
+        //        {
+        //            strList.Remove(strMas[i]);
+        //        }
+        //    }
+        //    foreach (string i in strList)
+        //    {
+        //        Console.WriteLine(i);
+        //    }
+        //}
+
+
+        public static void D_Solution()
         {
-            string[] strMas = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            List<string> strList = new List<string>();
-            HashSet<string> strHash = new HashSet<string>();
-            for (int i =0; i< strMas.Length; i++)
+            List<string> strMas = new List<string>();
+            List<string> YesOrNo = new List<string>();
+            int parity = 0;
+            string strTemp = "";
+            while(strTemp != "HELP")
             {
-                if (!strHash.Contains(strMas[i]))
+                strTemp = Console.ReadLine();
+                if (parity % 2 == 0 && parity != 0 && strTemp != "HELP")
                 {
-                    strHash.Add(strMas[i]);
-                    strList.Add(strMas[i]);
+                    YesOrNo.Add(strTemp);
                 }
-                else
+                else if(parity != 0 && strTemp != "HELP")
                 {
-                    strList.Remove(strMas[i]);
+                    strMas.Add(strTemp);
+                }
+                parity++;
+            }
+            HashSet<string> myHash = new HashSet<string>();
+            for(int i = 0; i < YesOrNo.Count; i++)
+            {
+                if (YesOrNo[i] == "YES")
+                {
+                    string[] masTemp = strMas[i].Split(' ');
+                    foreach (string obj in masTemp)
+                    {
+                        myHash.Add(obj);
+                    }
+                }
+                if (YesOrNo[i] == "NO")
+                {
+                    string[] masTemp = strMas[i].Split(' ');
+                    foreach (string obj in masTemp)
+                    {
+                        if (myHash.Contains(obj))
+                        {
+                            myHash.Remove(obj);
+                        }
+                    }
                 }
             }
-            foreach (string i in strList)
+            string result = "";
+            int count = 1;
+            foreach (var i in myHash)
             {
-                Console.WriteLine(i);
+                result += i;
+                if(count != myHash.Count)
+                {
+                    result += " ";
+                }
+               
             }
+            Console.WriteLine(result);
         }
 
 
@@ -82,7 +140,13 @@ namespace YandexAlgorithms_2_0
             //
             //B_Solution(Console.ReadLine());
 
-            C_Solution(Console.ReadLine());
+            //Задача C
+            //
+            //C_Solution(Console.ReadLine());
+
+            //Задача D
+            //
+            D_Solution();
         }
     }
 }
