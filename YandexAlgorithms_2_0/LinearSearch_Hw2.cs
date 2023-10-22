@@ -7,7 +7,7 @@
 
 //namespace YandexAlgorithms_2_0
 //{
-//    public class Homework2
+//    public class LinearSearch_Hw2
 //    {
 
 //        //Задача A
@@ -188,7 +188,7 @@
 //                intDiplomasMas.Add(tempDip);
 //            }
 //            int maxLast = intDiplomasMas.Max();
-//            if(intDiplomasMas.Count == 1)
+//            if (intDiplomasMas.Count == 1)
 //            {
 //                Console.WriteLine(0);
 //            }

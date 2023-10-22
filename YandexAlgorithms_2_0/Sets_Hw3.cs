@@ -7,7 +7,7 @@
 
 //namespace YandexAlgorithms_2_0
 //{
-//    public class Homework3
+//    public class Sets_Hw3
 //    {
 
 //        //public static void A_Solution(string firstStr, string secondStr)
@@ -79,21 +79,21 @@
 //            List<string> YesOrNo = new List<string>();
 //            int parity = 0;
 //            string strTemp = "";
-//            while(strTemp != "HELP")
+//            while (strTemp != "HELP")
 //            {
 //                strTemp = Console.ReadLine();
 //                if (parity % 2 == 0 && parity != 0 && strTemp != "HELP")
 //                {
 //                    YesOrNo.Add(strTemp);
 //                }
-//                else if(parity != 0 && strTemp != "HELP")
+//                else if (parity != 0 && strTemp != "HELP")
 //                {
 //                    strMas.Add(strTemp);
 //                }
 //                parity++;
 //            }
 //            HashSet<string> myHash = new HashSet<string>();
-//            for(int i = 0; i < YesOrNo.Count; i++)
+//            for (int i = 0; i < YesOrNo.Count; i++)
 //            {
 //                if (YesOrNo[i] == "YES")
 //                {
@@ -120,11 +120,11 @@
 //            foreach (var i in myHash)
 //            {
 //                result += i;
-//                if(count != myHash.Count)
+//                if (count != myHash.Count)
 //                {
 //                    result += " ";
 //                }
-               
+
 //            }
 //            Console.WriteLine(result);
 //        }

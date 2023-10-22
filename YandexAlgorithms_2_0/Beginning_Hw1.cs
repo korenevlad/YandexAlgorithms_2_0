@@ -6,7 +6,7 @@
 
 //namespace YandexAlgorithms_2_0
 //{
-//    public class Homework1
+//    public class Beginning_Hw1
 //    {
 //        /*Задача A
 //         */
