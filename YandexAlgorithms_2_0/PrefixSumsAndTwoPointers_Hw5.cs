@@ -52,9 +52,43 @@ namespace YandexAlgorithms_2_0
 
         }
 
+
+        public static void B_Solution(string sizeMas, string mas)
+        {
+            int.TryParse(sizeMas, out int size);
+            string[] masStr = mas.Split(' ');
+            BigInteger[] masInt = new BigInteger[size];
+            for (int i = 0; i < size; i++)
+            {
+                masInt[i] = int.Parse(masStr[i]);
+            }
+            BigInteger[] prefixSum = new BigInteger[size + 1];
+            prefixSum[0] = 0;
+            for (int i = 1; i < size + 1; i++)
+            {
+                prefixSum[i] = prefixSum[i - 1] + masInt[i - 1];
+            }
+            BigInteger mindo = prefixSum.Max();
+            List<BigInteger> res = new List<BigInteger>();
+            for (int i = 0; i<prefixSum.Length; i++)
+            {
+                res.Add(prefixSum[i] - mindo);
+                if(mindo > prefixSum[i])
+                {
+                    mindo = prefixSum[i];
+                }
+            }
+            res.Remove(0);
+            Console.WriteLine(res.Max());
+        }
+
+
+
         public static void Main(string[] args)
         {
-            A_Solution();
+            //A_Solution();
+            
+            B_Solution(Console.ReadLine(), Console.ReadLine());
         }
     }
 }
