@@ -147,7 +147,147 @@ namespace YandexAlgorithms_2_0
             return result;
         }
 
+        //public static void C_Solution(string firstStr, string secondStr, string thirdStr )
+        //{
+        //    int result = 0;
 
+        //    string[] nm = firstStr.Split(' ');
+        //    int.TryParse(nm[0], out int N);
+        //    int.TryParse(nm[1], out int M);
+        //    string[] groupsStr = secondStr.Split(' ');
+        //    string[] audsStr = thirdStr.Split(' ');
+        //    int[] groups = new int[groupsStr.Length];
+        //    int[] auds = new int[audsStr.Length];
+
+        //    Dictionary<int, int> set = new Dictionary<int, int>();
+        //    Dictionary<int, int> resultSet = new Dictionary<int, int>();
+
+        //    for (int i = 0; i < N; i++)
+        //    {
+        //        int.TryParse(groupsStr[i], out groups[i]);
+        //    }
+        //    for (int i = 0; i < M; i++)
+        //    {
+        //        int.TryParse(audsStr[i], out auds[i]);
+        //        set[auds[i]] = i + 1;
+        //    }
+        //    int[] groupsSorted = new int[N];
+        //    Array.Copy(groups, groupsSorted, groups.Length);
+        //    Array.Sort(groupsSorted);
+        //    Array.Sort(auds);
+
+        //    int audsPointer = 0;
+        //    int groupsPointer = 0;
+
+        //    while (groupsPointer < N && audsPointer < M)
+        //    {
+        //        if (auds[audsPointer] - groupsSorted[groupsPointer] < 1)
+        //        {
+        //            if(audsPointer < M - 1)
+        //            {
+        //                audsPointer++;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (groupsPointer >= N - 1)
+        //            {
+        //                result++;
+        //                resultSet[groupsSorted[groupsPointer]] = set[auds[audsPointer]];
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                if (auds[audsPointer] - groupsSorted[groupsPointer + 1] >= 1)
+        //                {
+        //                    groupsPointer++;
+        //                }
+        //                else
+        //                {
+        //                    result++;
+        //                    resultSet[groupsSorted[groupsPointer]] = set[auds[audsPointer]];
+        //                    groupsPointer++;
+        //                    audsPointer++;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    foreach(var i in groups)
+        //    {
+        //        if (resultSet.ContainsKey(i))
+        //        {
+        //            Console.Write(resultSet[i] + " ");
+        //        }
+        //        else
+        //        {
+        //            Console.Write(0 + " ");
+        //        }
+        //    }
+        //    Console.WriteLine();
+        //    Console.WriteLine(result);
+
+        //}
+
+
+        public static bool LeetCode1657(string word1, string word2)
+        {
+            char[] masStr1 = word1.ToCharArray();
+            char[] masStr2 = word2.ToCharArray();
+            bool flagMain = true;
+            bool flagContain = false;
+            Dictionary<char, int> symbolCountStr1 = new Dictionary<char, int>();
+            Dictionary<char, int> symbolCountStr2 = new Dictionary<char, int>();
+
+            HashSet<char> charContainer = new HashSet<char>();
+
+            if (masStr1.Length != masStr2.Length)
+            {
+                flagMain = false;
+            }
+            else
+            {
+                for (int i = 0; i < masStr1.Length; i++)
+                {
+                    charContainer.Add(masStr1[i]);
+
+                    if (!symbolCountStr1.ContainsKey(masStr1[i]))
+                    { symbolCountStr1[masStr1[i]] = 1; }
+                    else symbolCountStr1[masStr1[i]]++;
+
+                    if (!symbolCountStr2.ContainsKey(masStr2[i]))
+                    { symbolCountStr2[masStr2[i]] = 1; }
+                    else symbolCountStr2[masStr2[i]]++;
+                }
+                foreach (var i in masStr2)
+                {
+                    if (!charContainer.Contains(i))
+                    {
+                        flagContain = true;
+                        break;
+                    }
+                }
+                List<int> symbolCountStr1ToList = symbolCountStr1.Values.ToList();
+                List<int> symbolCountStr2ToList = symbolCountStr2.Values.ToList();
+
+                foreach (var item in symbolCountStr1ToList)
+                {
+                    if (symbolCountStr2ToList.Contains(item))
+                    {
+                        symbolCountStr2ToList.Remove(item);
+                    }
+                    else
+                    {
+                        flagMain = false;
+                        break;
+                    }
+                }
+            }
+            if (flagContain == true)
+            {
+                flagMain = false;
+            }
+            return flagMain;
+        }
 
 
         public static void Main(string[] args)
@@ -163,8 +303,15 @@ namespace YandexAlgorithms_2_0
             //int[] num2 = { 1, 2, 3 };
             //Console.WriteLine(LeetCode724(num2));
 
-            int[] num3 = { 1, 2, 3 };
-            Console.WriteLine(LetCode560(num3, 3));
+            //int[] num3 = { 1, 2, 3 };
+            //Console.WriteLine(LetCode560(num3, 3));
+
+            //string nm = Console.ReadLine() ;
+            //string group = Console.ReadLine();
+            //string auds = Console.ReadLine();
+            //C_Solution(nm, group, auds);
+
+            Console.WriteLine(LeetCode1657("aaabbbbccddeeeeefffff", "aaaaabbcccdddeeeeffff"));
         }
     }
 }
