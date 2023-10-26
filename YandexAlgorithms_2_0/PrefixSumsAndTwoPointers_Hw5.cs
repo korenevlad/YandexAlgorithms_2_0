@@ -289,6 +289,33 @@ namespace YandexAlgorithms_2_0
             return flagMain;
         }
 
+        public static void LeetCode283(int[] nums)
+        {
+            int endPointer = 0;
+            int mainPointer = 0;
+            while (nums.Length - endPointer != mainPointer)
+            {
+                if (nums[mainPointer] == 0)
+                {
+                    for (int i = mainPointer + 1; i < nums.Length; i++)
+                    {
+                        nums[i - 1] = nums[i];
+                    }
+                    nums[nums.Length - 1] = 0;
+                    endPointer++;
+                }
+                else
+                {
+                    mainPointer++;
+                }
+            }
+            foreach (var i in nums)
+            {
+                Console.Write(i + " ");
+            }
+        }
+
+        
 
         public static void Main(string[] args)
         {
@@ -311,7 +338,9 @@ namespace YandexAlgorithms_2_0
             //string auds = Console.ReadLine();
             //C_Solution(nm, group, auds);
 
-            Console.WriteLine(LeetCode1657("aaabbbbccddeeeeefffff", "aaaaabbcccdddeeeeffff"));
+            //Console.WriteLine(LeetCode1657("aaabbbbccddeeeeefffff", "aaaaabbcccdddeeeeffff"));
+            int[] nums = { 0, 1, 0, 3, 12 };
+            LeetCode283(nums);
         }
     }
 }
