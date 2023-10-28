@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace YandexAlgorithms_2_0
 {
-    delegate bool DelegateCheck(long[] nums, long l, long r, int ind);
+    delegate bool A_DelegateCheck(long[] nums, long l, long r, int ind);
+    delegate bool B_DelegateCheck(int ind, long[] nums, long k);
     public class BinarySearch_HW6
     {
         public static void A_Solution(string first, string second, string third)
@@ -52,7 +53,7 @@ namespace YandexAlgorithms_2_0
                 Console.WriteLine(i);
             }
 
-            int LeftBinarySearch(long l_check, long r_check, DelegateCheck check, long[] nums)
+            int LeftBinarySearch(long l_check, long r_check, A_DelegateCheck check, long[] nums)
             {
                 int l = 0;
                 int r = nums.Length - 1;
@@ -97,10 +98,99 @@ namespace YandexAlgorithms_2_0
         }
 
 
+        public static void B_Solution(string a, string b, string c, string d)
+        {
+            int.TryParse(a, out int n);
+            long[] nums = b.Split(' ').Select(long.Parse).ToArray();
+            int.TryParse(c, out int m);
+            long[] searchNums = d.Split(' ').Select(long.Parse).ToArray();
+
+            for (int i = 0; i < m; i++)
+            {
+                int leftInd = BinarySearch(searchNums[i], LeftSearch, nums);
+                int rightInd = BinarySearch(searchNums[i], RightSearch, nums);
+
+                if (leftInd == -1)
+                {
+                    Console.WriteLine("0 0");
+                }
+                else
+                {
+                    leftInd++;
+                    rightInd++;
+                    if (nums[nums.Length - 1] == searchNums[i])
+                    {
+                        rightInd++;
+                    }
+                    if (leftInd != rightInd)
+                    {
+                        rightInd--;
+                    }
+                    Console.WriteLine(leftInd + " " + rightInd);
+                }
+            }
+
+            int BinarySearch(long k, B_DelegateCheck check, long[] nums)
+            {
+                int l = 0;
+                int r = nums.Length - 1;
+                while (l < r)
+                {
+                    int m = (l + r) / 2;
+                    if (check(m, nums, k))
+                    {
+                        r = m;
+                    }
+                    else
+                    {
+                        l = m + 1;
+                    }
+                }
+                if (nums[l] == k)
+                {
+                    return l;
+                }
+                else if (l > 0 && nums[l - 1] == k)
+                {
+                    return l;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            bool LeftSearch(int ind, long[]nums, long k)
+            {
+                if (nums[ind] >= k)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            bool RightSearch(int ind, long[] nums, long k)
+            {
+                if (nums[ind] > k)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+
+
         public static void Main(string[] args)
         {
+            //A_Solution(Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
 
-            A_Solution(Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+            B_Solution(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
         }
     }
 }
