@@ -9,6 +9,7 @@ namespace YandexAlgorithms_2_0
 {
     delegate bool A_DelegateCheck(long[] nums, long l, long r, int ind);
     delegate bool B_DelegateCheck(int ind, long[] nums, long k);
+    delegate bool LeetCode2300(int[] potions, long success, int m, int elementOfspells);
     public class BinarySearch_HW6
     {
         public static void A_Solution(string first, string second, string third)
@@ -185,12 +186,72 @@ namespace YandexAlgorithms_2_0
 
         }
 
+        public static int[] LeetCode2300(int[] spells, int[] potions, long success)
+        {
+            int[] results = new int[spells.Length];
+            Array.Sort(potions);
+            for (int  i = 0; i < spells.Length; i++)
+            {
+                int indPotions = BinarySearch(potions, spells[i], Check, success);
+                int res = potions.Length - indPotions;
+                results[i] = res;
+            }
+            return results;
+
+            int BinarySearch(int[] potions, int elementOfspells, LeetCode2300 Check, long success)
+            {
+                int l = 0;
+                int r = potions.Length - 1;
+                while (l < r)
+                {
+                    int m = l/2 + r/2;
+                    if (Check(potions, success, m, elementOfspells))
+                    {
+                        r = m;
+                    }
+                    else
+                    {
+                        l = m + 1;
+                    }
+                }
+                if (((long)potions[l] * (long)elementOfspells) < success)
+                {
+                    return l + 1;
+                }
+                else
+                {
+                    return l;
+                }
+            }
+            bool Check(int[] potions, long success, int m, int elementOfspells)
+            {
+                if (((long)potions[m] * (long)elementOfspells) >= success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
 
         public static void Main(string[] args)
         {
             //A_Solution(Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
 
-            B_Solution(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+            //B_Solution(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+
+
+            int[] spells = { 5, 1, 3 };
+            int[] potions = { 1, 2, 3, 4, 5 };
+            long success = 7;
+            int [] res = LeetCode2300(spells, potions, success);
+            foreach(var i in res)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
